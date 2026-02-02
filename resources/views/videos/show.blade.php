@@ -1,45 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="p-10">
-    <div class="mb-4">
-        <a href="{{ route('videos.index') }}" class="text-blue-500">&larr; Volver</a>
-    </div>
+@extends('layout')
 
-    <h1 class="text-3xl font-bold">{{ $video->title }}</h1>
-    
-    <p class="text-gray-600 mb-4">Subido por: <strong>{{ $video->user->name }}</strong></p>
-
-    <video class="w-full max-w-4xl" controls autoplay>
-        <source src="{{ asset('storage/' . $video->video_path) }}" type="video/mp4">
-    </video>
-    
-    <div class="mt-4 p-4 bg-gray-100 rounded">
-        <p>{{ $video->description }}</p>
-    </div>
-
-    <hr class="my-8">
-
-    <h3 class="text-2xl font-bold mb-4">Comentarios</h3>
-
-    @auth
-        <form action="{{ route('comments.store', $video) }}" method="POST" class="mb-8">
-            @csrf
-            <textarea name="body" class="w-full border p-2 rounded" placeholder="Escribe un comentario..." required></textarea>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Comentar</button>
-        </form>
-    @else
-        <p class="mb-4"><a href="{{ route('login') }}" class="text-blue-500">Inicia sesión</a> para comentar.</p>
-    @endauth
-
-    @foreach($video->comments as $comment)
-        <div class="border-b py-2">
-            <strong>{{ $comment->user->name }}</strong> dijo:
-            <p>{{ $comment->body }}</p>
-            <small class="text-gray-400">{{ $comment->created_at->diffForHumans() }}</small>
+@section('content')
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+            <video class="w-full rounded-lg shadow-lg bg-black" controls autoplay>
+                <source src="{{ asset('storage/' . $video->video_path) }}" type="video/mp4">
+            </video>
+            
+            <h1 class="text-2xl font-bold mt-4">{{ $video->title }}</h1>
+            <p class="text-gray-600">Subido por <span class="font-bold text-black">{{ $video->user->name }}</span></p>
+            
+            <div class="mt-4 p-4 bg-white rounded shadow-sm">
+                <p>{{ $video->description }}</p>
+            </div>
         </div>
-    @endforeach
-</body>
-</html>
+
+        <div class="bg-white p-4 rounded shadow h-fit">
+            <h3 class="font-bold text-xl mb-4">Comentarios ({{ $video->comments->count() }})</h3>
+            
+            @auth
+                <form action="{{ route('comments.store', $video) }}" method="POST" class="mb-6">
+                    @csrf
+                    <textarea name="body" class="w-full border p-2 rounded mb-2" placeholder="Añade un comentario..." rows="2" required></textarea>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded text-sm hover:bg-blue-700">Comentar</button>
+                </form>
+            @endauth
+
+            <div class="space-y-4">
+                @foreach($video->comments as $comment)
+                    <div class="border-b pb-2">
+                        <p class="font-bold text-sm">{{ $comment->user->name }}</p>
+                        <p class="text-gray-700">{{ $comment->body }}</p>
+                        <small class="text-gray-400 text-xs">{{ $comment->created_at->diffForHumans() }}</small>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+@endsection
