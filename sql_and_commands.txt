@@ -1,0 +1,22 @@
+//SQL
+
+CREATE DATABASE pooptube;
+
+USE pooptube;
+
+CREATE USER 'caca'@'localhost' IDENTIFIED BY 'caca';
+
+GRANT ALL PRIVILEGES ON *.* TO 'caca'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+
+
+
+
+
+//git
+
+git add .
+git commit -m "Aquí explica brevemente qué cambios hiciste"
+git push
