@@ -1,2 +1,5 @@
 *.log
 
+dbeaver*
+*.deb
+dbeaver* echo *.deb
