@@ -1,15 +1,11 @@
 @extends('layout')
 
 @section('content')
-    <div class="mb-6 md:mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold" style="color: #2d2d2d;">Inicio</h2>
-        <p class="text-sm md:text-base mt-1" style="color: #666;">Videos recomendados para ti</p>
-    </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         
         @foreach($videos as $video)
-            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 group cursor-pointer">
+            <div class=" transition-shadow duration-300 overflow-hidden border border-gray-100 group cursor-pointer" style="border-radius:30px">
                 <!-- Thumbnail Container -->
                 <a href="{{ route('videos.show', $video->id) }}" class="block relative w-full aspect-video bg-gray-900 overflow-hidden rounded-xl">
                     <video class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" muted loop preload="none">
@@ -33,7 +29,7 @@
                 <div class="p-3 md:p-4">
                     <!-- Channel Avatar + Info -->
                     <div class="flex gap-3 mb-3">
-                        <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0" style="background-color: #6CAA86;">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0" style="background-color: #6CAA86; width: 36px; height: 36px;">
                             {{ substr($video->user->name, 0, 1) }}
                         </div>
                         
@@ -54,9 +50,8 @@
 
                     <!-- Stats -->
                     <div class="text-xs" style="color: #999;">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mt-2">
                             <span>{{ rand(100, 999) }}K vistas</span>
-                            <span>{{ $video->comments->count() }} 💬</span>
                         </div>
                         <div class="mt-1">{{ $video->created_at->diffForHumans() }}</div>
                     </div>

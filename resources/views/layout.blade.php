@@ -21,31 +21,49 @@
             font-size: 24px;
             letter-spacing: 4px;
         }
+
+        
         
         .logo-circle {
-            width: 40px;
-            height: 40px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            color: white;
+            border-radius: 30px;
+            color: #4A4A4A;
             font-weight: 900;
-            font-size: 18px;
+            font-size: 40px;
+            font-family: Lato, sans-serif;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+        }
+
+          
+        .logo-circle-2 {
+            width: 50px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            color: #4A4A4A;
+            font-weight: 900;
+            font-size: 40px;
+            font-family: Lato, sans-serif;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         
-        .logo-p1 { background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); }
-        .logo-o1 { background: linear-gradient(135deg, #DE8E00 0%, #C97700 100%); }
-        .logo-o2 { background: linear-gradient(135deg, #B8D400 0%, #9FB200 100%); }
-        .logo-p2 { background: linear-gradient(135deg, #82C884 0%, #6CAA86 100%); }
+        .logo-p1 { background: #22D19A }
+        .logo-o1 { background: #DE8E00}
+        .logo-o2 { background: #91A607 }
+        .logo-p2 { background: #6CAA86 }
         
         @media (max-width: 768px) {
             .sidebar-toggle { display: block; }
-            #sidebar { position: fixed; left: 0; top: 60px; height: calc(100vh - 60px); width: 280px; transform: translateX(-100%); z-index: 40; overflow-y: auto; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+            #sidebar { position: fixed; left: 0; top: 40px; height: calc(100vh - 60px); width: 280px; transform: translateX(-100%); z-index: 40; overflow-y: auto; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
             #sidebar.active { transform: translateX(0); }
             .logo-circle { width: 32px; height: 32px; font-size: 14px; }
-            .poop-logo { font-size: 20px; gap: 4px; }
+            .poop-logo { font-size: 30px; gap: 4px; }
         }
         
         .navbar-user-menu {
@@ -53,9 +71,10 @@
         }
         
         .user-avatar {
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
+            margin-right: 20px;
             background-color: #DE8E00;
             display: flex;
             align-items: center;
@@ -76,8 +95,8 @@
 <body>
 
     <!-- Navbar Tipo YouTube -->
-    <nav style="background-color: white; border-bottom: 1px solid #e0e0e0;" class="sticky top-0 z-50 h-16">
-        <div class="max-w-full h-full flex justify-between items-center px-4 md:px-8 gap-4">
+    <nav style="background-color: #447169; border-top: 25px solid #447169; border-bottom: 25px solid #447169;" class="sticky top-0 z-50 h-70">
+        <div class="max-w-2000 h-full flex justify-between items-center px-4 md:px-8 gap-4">
             <!-- Logo + Toggle -->
             <div class="flex items-center gap-4 flex-shrink-0">
                 <button id="menu-toggle" class="sidebar-toggle text-gray-700 text-2xl md:hidden hover:opacity-70 transition p-2">
@@ -86,22 +105,24 @@
                 
                 <a href="{{ route('videos.index') }}" class="poop-logo hover:opacity-90 transition">
                     <div class="logo-circle logo-p1">P</div>
-                    <div class="logo-circle logo-o1">O</div>
-                    <div class="logo-circle logo-o2">O</div>
+                    <div class="logo-circle-2 logo-o1">o</div>
+                    <div class="logo-circle-2 logo-o2">o</div>
                     <div class="logo-circle logo-p2">P</div>
                 </a>
             </div>
 
             <!-- Búsqueda Centrada -->
-            <div class="hidden sm:flex flex-1 max-w-2xl mx-4">
+            <div class="hidden sm:flex flex-1 max-w-xl mx-4">
                 <div class="relative w-full">
-                    <input type="text" placeholder="Buscar en Pooptube" 
-                           class="w-full px-4 py-2 rounded-full bg-gray-100 text-gray-800 placeholder-gray-500 focus:outline-none focus:bg-white focus:ring-2 text-sm"
+                    <input type="text" placeholder="Buscar..." 
+                           class="w-full rounded-full bg-gray-100 text-gray-800 placeholder-gray-500 focus:bg-white focus:ring-2 text-sm gap-2 pl-1 pr-3 transition;"
                            style="--tw-ring-color: #DE8E00;">
+                           
                     <button class="absolute right-1 top-1/2 transform -translate-y-1/2 text-gray-600 p-2 hover:opacity-60 transition rounded-full"
                             style="background-color: transparent;">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                        <svg class="w-6 h-6 " fill="#DE8E00" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
                     </button>
+                    
                 </div>
             </div>
 
@@ -117,14 +138,14 @@
                     </a>
                     
                     <a href="{{ route('videos.create') }}" 
-                       class="md:hidden text-gray-700 font-semibold px-3 py-1.5 rounded-full hover:bg-gray-100 transition text-xs"
-                       title="Crear">
-                        + Crear
+                       class="md:hidden text-white font-semibold px-3 py-1.5 rounded-full hover:bg-gray-100 transition text-lg"
+                       title="Crear"> 
+                       <div style=" color:black ; text-align:center;width:120px ;background-color: #ffffff; padding: 4px 8px; border-radius: 30px; margin-right: 50px;">Crear</div>
                     </a>
 
                     <!-- User Avatar -->
                     <div class="navbar-user-menu">
-                        <div class="user-avatar" id="user-menu-btn" title="{{ Auth::user()->name }}">
+                        <div  class="user-avatar" id="user-menu-btn" title="{{ Auth::user()->name }}">
                             {{ substr(Auth::user()->name, 0, 1) }}
                         </div>
                         
@@ -135,16 +156,16 @@
                                 <p class="text-xs" style="color: #999;">{{ Auth::user()->email }}</p>
                             </div>
                             <a href="{{ route('comments.index') }}" class="block px-4 py-3 hover:bg-gray-50 text-sm text-gray-700 transition">
-                                📝 Mis comentarios
+                                Mis comentarios
                             </a>
                             <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm text-gray-700 transition">
-                                📺 Mis videos
+                                Mis videos
                             </a>
                             <div class="border-t border-gray-100"></div>
                             <form method="POST" action="{{ route('logout') }}" class="block">
                                 @csrf
                                 <button type="submit" class="w-full text-left px-4 py-3 hover:bg-gray-50 text-sm text-gray-700 transition">
-                                    🚪 Salir
+                                    Salir
                                 </button>
                             </form>
                         </div>
@@ -256,8 +277,7 @@
 
     <footer class="text-center py-6 text-xs md:text-sm border-t border-gray-200" style="color: #999; background-color: #f5f5f5;">
         <div class="max-w-6xl mx-auto px-4 space-y-2">
-            <p>&copy; {{ date('Y') }} Pooptube — Una plataforma para compartir tu poop</p>
-            <p style="color: #bbb;">Creado con 💚</p>
+            <p>&copy; {{ date('Y') }} Pooptube — Una plataforma para compartir tus PooP</p>
         </div>
     </footer>
 
