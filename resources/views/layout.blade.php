@@ -158,7 +158,7 @@
                             <a href="{{ route('comments.index') }}" class="block px-4 py-3 hover:bg-gray-50 text-sm text-gray-700 transition">
                                 Mis comentarios
                             </a>
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm text-gray-700 transition">
+                            <a href="{{ route('videos.my') }}" class="block px-4 py-3 hover:bg-gray-50 text-sm text-gray-700 transition">
                                 Mis videos
                             </a>
                             <div class="border-t border-gray-100"></div>

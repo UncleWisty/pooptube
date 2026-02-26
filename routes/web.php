@@ -13,6 +13,10 @@ Route::get('/watch/{video}', [VideoController::class, 'show'])->name('videos.sho
 Route::middleware('auth')->group(function () {
     Route::get('/upload', [VideoController::class, 'create'])->name('videos.create');
     Route::post('/upload', [VideoController::class, 'store'])->name('videos.store');
+    Route::get('/my-videos', [VideoController::class, 'myVideos'])->name('videos.my');
+    Route::get('/videos/{video}/edit', [VideoController::class, 'edit'])->name('videos.edit');
+    Route::patch('/videos/{video}', [VideoController::class, 'update'])->name('videos.update');
+    Route::delete('/videos/{video}', [VideoController::class, 'destroy'])->name('videos.destroy');
     Route::post('/videos/{video}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::get('/my-comments', [CommentController::class, 'userComments'])->name('comments.index');
     

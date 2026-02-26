@@ -4,8 +4,9 @@
 
 <style>
     video {
-        width: 95%;              /* MÁS GRANDE */
-        max-width: 1250px;       /* Límite elegante */
+        width: 95%;              
+        max-width: 1250px;
+        max-height: 80vh ;     
         border-radius: 20px;
         margin: 30px auto 50px auto;
         display: block;
@@ -69,6 +70,16 @@
                     Descargar
                 </button>
 
+                @auth
+                    @if(Auth::id() === $video->user_id)
+                        <a href="{{ route('videos.edit', $video) }}" class="ml-2 btn-panel px-3 py-2">Editar</a>
+                        <form action="{{ route('videos.destroy', $video) }}" method="POST" class="ml-2" onsubmit="return confirm('¿Eliminar este video?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="px-3 py-2 rounded bg-red-600 text-white">Eliminar</button>
+                        </form>
+                    @endif
+                @endauth
             </div>
         </div>
 

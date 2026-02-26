@@ -27,6 +27,7 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\UserRole' => $baseDir . '/app/Models/UserRole.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',
+    'App\\Policies\\PostPolicy' => $baseDir . '/app/Policies/PostPolicy.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\View\\Components\\AppLayout' => $baseDir . '/app/View/Components/AppLayout.php',
     'App\\View\\Components\\GuestLayout' => $baseDir . '/app/View/Components/GuestLayout.php',

@@ -8,13 +8,13 @@
             <div class=" transition-shadow duration-300 overflow-hidden border border-gray-100 group cursor-pointer" style="border-radius:30px">
                 <!-- Thumbnail Container -->
                 <a href="{{ route('videos.show', $video->id) }}" class="block relative w-full aspect-video bg-gray-900 overflow-hidden rounded-xl">
-                    <video class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" muted loop preload="none">
+                    <video class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" muted playsinline loop preload="metadata">
                         <source src="{{ asset('storage/' . $video->video_path) }}" type="video/mp4">
                     </video>
                     
                     <!-- Play Button Overlay -->
                     <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 duration-300">
-                        <svg class="w-14 h-14 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-10 h-10 sm:w-12 sm:h-12 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                         </svg>
                     </div>
